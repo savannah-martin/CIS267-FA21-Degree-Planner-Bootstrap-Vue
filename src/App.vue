@@ -35,6 +35,20 @@
                           </div>
                         </div>
                         <div class="row">
+                          <b-form-select
+                            v-model="selected"
+                            :options="options"
+                          ></b-form-select>
+
+                          <b-button
+                            block
+                            variant="outline-secondary"
+                            class="my-2"
+                            >Add</b-button
+                          >
+                        </div>
+
+                        <div class="row">
                           <div class="col">
                             <a
                               href="#bib121"
@@ -273,6 +287,14 @@ export default {
         { id: "CIS171", name: "Computer Programming I" },
         { id: "CIS211", name: "Intro to Web Design" },
       ],
+      options: [
+        { value: null, text: "Please select an option" },
+        { value: "fall2019", text: "Fall 2019" },
+        { value: "spring2020", text: "Spring 2020" },
+        { value: { C: "3PO" }, text: "This is an option with object value" },
+        { value: "d", text: "This one is disabled", disabled: true },
+      ],
+      selected: null,
     };
   },
 };
