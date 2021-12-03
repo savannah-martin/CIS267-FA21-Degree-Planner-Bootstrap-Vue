@@ -261,6 +261,8 @@
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
+import cisCourses from "./cis.json";
+import lacCourses from "./lac.json";
 
 export default {
   name: "App",
@@ -283,10 +285,8 @@ export default {
           classes: [],
         },
       ],
-      courses: [
-        { id: "CIS171", name: "Computer Programming I" },
-        { id: "CIS211", name: "Intro to Web Design" },
-      ],
+      lacCourses: lacCourses,
+      cisCourses: cisCourses,
       options: [
         { value: null, text: "Please select an option" },
         { value: "fall2019", text: "Fall 2019" },
