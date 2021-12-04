@@ -20,7 +20,7 @@
         <div class="row">
           <b-form-select v-model="selected" :options="options"></b-form-select>
 
-          <b-button block @click="add" variant="outline-secondary" class="my-2"
+          <b-button block @click="add(selected)" variant="outline-secondary" class="my-2"
             >Add</b-button
           >
         </div>
@@ -70,8 +70,8 @@ export default {
     };
   },
   methods: {
-    add() {
-      this.$emit("add-course", this.course.id);
+    add(selected) {
+      this.$emit("add-course", this.course.id, selected);
     },
     methods: {
       convertID(courseID) {

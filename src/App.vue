@@ -48,7 +48,6 @@
               class="accordion my-4"
               id="schedule.id"
               :schedule="schedule"
-              :classes="classes"
             />
           </div>
 
@@ -156,24 +155,30 @@ export default {
         },
       ],
       lacCourses: lacCoursesfile,
-      cisCourses: cisCoursesfile
+      cisCourses: cisCoursesfile,
     };
   },
   methods: {
-    add(id) {
+    add(id, selected) {
       //find schedule with matching value
       //push course onto classes array
       if (this.schedules.length < 21) {
         this.lacCourses.forEach((c) => {
           if (c.id == id) {
-            this.schedules[0].classes.push(c);
-            console.log(this.schedules[1].classes);
+            this.schedules.forEach((s) => {
+              if (selected == s.id) {
+                s.classes.push(c);
+              }
+            });
           }
         });
         this.cisCourses.forEach((c) => {
           if (c.id == id) {
-            this.schedules[0].classes.push(c);
-            console.log(this.schedules[1].classes);
+            this.schedules.forEach((s) => {
+              if (selected == s.id) {
+                s.classes.push(c);
+              }
+            });
           }
         });
       }

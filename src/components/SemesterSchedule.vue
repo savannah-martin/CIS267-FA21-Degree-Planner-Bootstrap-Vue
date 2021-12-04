@@ -19,17 +19,17 @@
               <td></td>
               <th>Credits</th>
             </thead>
-            <tr>
-              <td>{{ schedule.classes[1].id }}</td>
+            <tr v-for="c in schedule.classes" :key="c.id">
+              <td>{{ c.id }}</td>
               <td>
-                <span class="fw-bold">{{ schedule.classes[1].name }} </span>
+                <span class="fw-bold">{{ c.name }} </span>
               </td>
               <td>
                 <span class="badge bg-primary">
-                  {{ schedule.classes[1].category }}
+                  {{ c.category }}
                 </span>
               </td>
-              <td>{{ schedule.classes[1].hours }}</td>
+              <td>{{ c.hours }}</td>
             </tr>
             <tr>
               <td></td>
@@ -47,7 +47,7 @@
 <script>
 export default {
   name: "SemesterSchedule",
-  props: { schedule: Object, classes: Array },
+  props: { schedule: Object},
   methods: {
     remove(id) {
       this.$emit("remove-course", id);
