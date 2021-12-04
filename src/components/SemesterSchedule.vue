@@ -20,50 +20,16 @@
               <th>Credits</th>
             </thead>
             <tr>
-              <td>BIB 121</td>
+              <td>{{ schedule.classes[1].id }}</td>
               <td>
-                <span class="fw-bold"> {{schedule.classes[1].name}} </span>
+                <span class="fw-bold">{{ schedule.classes[1].name }} </span>
               </td>
               <td>
-                <span class="badge bg-primary"> LAC </span>
+                <span class="badge bg-primary">
+                  {{ schedule.classes[1].category }}
+                </span>
               </td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>CIS 171</td>
-              <td>
-                <span class="fw-bold">Computer Programming I</span>
-              </td>
-              <td>
-                <span class="badge bg-secondary"> CS </span>
-              </td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>COM 140</td>
-              <td>
-                <span class="fw-bold">Speech</span>
-              </td>
-              <td>
-                <span class="badge bg-primary"> LAC </span>
-              </td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>CYB 101</td>
-              <td>
-                <span class="fw-bold">Intro to Cybersecurity</span>
-              </td>
-              <td></td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>MAT 120</td>
-              <td>
-                <span class="fw-bold">Precalculus</span>
-              </td>
-              <td></td>
-              <td>3</td>
+              <td>{{ schedule.classes[1].hours }}</td>
             </tr>
             <tr>
               <td></td>

@@ -59,12 +59,12 @@
               <ul>
                 <li><a href="#fall2020">Fall 2020</a></li>
                 <li><a href="#spring2021">Spring 2021</a></li>
-                <li><a href="">Fall 2021</a></li>
-                <li><a href="">Spring 2022</a></li>
-                <li><a href="">Fall 2022</a></li>
-                <li><a href="">Spring 2023</a></li>
-                <li><a href="">Fall 2023</a></li>
-                <li><a href="">Spring 2024</a></li>
+                <li><a href="#fall2021">Fall 2021</a></li>
+                <li><a href="#spring2022">Spring 2022</a></li>
+                <li><a href="#fall2022">Fall 2022</a></li>
+                <li><a href="#spring2023">Spring 2023</a></li>
+                <li><a href="#fall2023">Fall 2023</a></li>
+                <li><a href="#spring2024">Spring 2024</a></li>
               </ul>
             </nav>
           </div>
@@ -156,19 +156,7 @@ export default {
         },
       ],
       lacCourses: lacCoursesfile,
-      cisCourses: cisCoursesfile,
-      options: [
-        { value: null, text: "Please select an option" },
-        { value: "fall2020", text: "Fall 2020" },
-        { value: "spring2021", text: "Spring 2021" },
-        { value: "fall2021", text: "Fall 2021" },
-        { value: "spring2022", text: "Spring 2022" },
-        { value: "fall2022", text: "Fall 2022" },
-        { value: "spring2023", text: "Spring 2023" },
-        { value: "fall2024", text: "Fall 2024" },
-        { value: "spring2024", text: "Spring 2024" },
-      ],
-      selected: null,
+      cisCourses: cisCoursesfile
     };
   },
   methods: {
@@ -177,6 +165,12 @@ export default {
       //push course onto classes array
       if (this.schedules.length < 21) {
         this.lacCourses.forEach((c) => {
+          if (c.id == id) {
+            this.schedules[0].classes.push(c);
+            console.log(this.schedules[1].classes);
+          }
+        });
+        this.cisCourses.forEach((c) => {
           if (c.id == id) {
             this.schedules[0].classes.push(c);
             console.log(this.schedules[1].classes);

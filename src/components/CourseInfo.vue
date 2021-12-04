@@ -28,15 +28,18 @@
         <div class="row">
           <div class="col">
             <a
-              href="#bib121"
+              :href="'#' + course.id.split(' ').join('')"
               class="card-link fw-light"
-              v-b-toggle:shortID
+              v-b-toggle="course.id.split(' ').join('')"
               >Course description ›</a
             >
           </div>
         </div>
 
-        <b-collapse class="course-description collapse card-text" :id="shortID">
+        <b-collapse
+          class="course-description collapse card-text"
+          :id="course.id.split(' ').join('')"
+        >
           <p class="text-muted card-text">
             {{ course.description }}
           </p>
@@ -50,25 +53,49 @@
 export default {
   name: "CourseInfo",
   props: { course: Object },
+  data() {
+    return {
+      options: [
+        { value: null, text: "Please select an option" },
+        { value: "fall2020", text: "Fall 2020" },
+        { value: "spring2021", text: "Spring 2021" },
+        { value: "fall2021", text: "Fall 2021" },
+        { value: "spring2022", text: "Spring 2022" },
+        { value: "fall2022", text: "Fall 2022" },
+        { value: "spring2023", text: "Spring 2023" },
+        { value: "fall2024", text: "Fall 2024" },
+        { value: "spring2024", text: "Spring 2024" },
+      ],
+      selected: null,
+    };
+  },
   methods: {
     add() {
       this.$emit("add-course", this.course.id);
     },
     methods: {
       convertID(courseID) {
-        return courseID.replace(" ", "").replace("/", "-").toLowerCase();
+        return courseID.string.split(" ").join("").toLowerCase();
       },
       makehref() {
         var id = this.course.id
           .replace(" ", "")
           .replace("/", "-")
           .toLowerCase();
+
         return "#" + id;
       },
     },
     computed: {
+      href() {
+        var id = this.course.id
+          .replace(" ", "")
+          .replace("/", "-")
+          .toLowerCase();
+        return "#" + id;
+      },
       shortID() {
-        return this.course.id.replace(" ", "").replace("/", "-").toLowerCase();
+        return this.course.id.split(" ").join("");
       },
     },
   },
