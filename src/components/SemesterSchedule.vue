@@ -35,7 +35,10 @@
                 <span class="fw-bold">{{ c.name }} </span>
               </td>
               <td>
-                <span class="badge bg-primary">
+                <span v-if="c.category == 'LAC'" class="badge bg-primary">
+                  {{ c.category }}
+                </span>
+                <span v-else class="badge bg-secondary">
                   {{ c.category }}
                 </span>
               </td>
