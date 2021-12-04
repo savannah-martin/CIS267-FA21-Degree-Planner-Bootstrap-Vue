@@ -24,7 +24,7 @@
             block
             @click="add(selected)"
             variant="outline-secondary"
-            class="my-2"
+            class="my-2 hb"
             >Add</b-button
           >
         </div>
@@ -81,4 +81,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>

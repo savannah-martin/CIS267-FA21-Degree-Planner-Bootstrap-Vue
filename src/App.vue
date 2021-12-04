@@ -112,48 +112,56 @@ export default {
           id: "fall2020",
           collapseId: "fall2020schedule",
           classes: [],
+          total: 0,
         },
         {
           name: "Spring 2021",
           id: "spring2021",
           collapseId: "spring2021schedule",
           classes: [],
+          total: 0,
         },
         {
           name: "Fall 2021",
           id: "fall2021",
           collapseId: "fall2021schedule",
           classes: [],
+          total: 0,
         },
         {
           name: "Spring 2022",
           id: "spring2022",
           collapseId: "spring2022schedule",
           classes: [],
+          total: 0,
         },
         {
           name: "Fall 2022",
           id: "fall2022",
           collapseId: "fall2022schedule",
           classes: [],
+          total: 0,
         },
         {
           name: "Spring 2023",
           id: "spring2023",
           collapseId: "spring2023schedule",
           classes: [],
+          total: 0,
         },
         {
           name: "Fall 2024",
           id: "fall2024",
           collapseId: "fall2024schedule",
           classes: [],
+          total: 0,
         },
         {
           name: "Spring 2024",
           id: "spring2024",
           collapseId: "spring2024schedule",
           classes: [],
+          total: 0,
         },
       ],
       lacCourses: lacCoursesfile,
@@ -169,6 +177,7 @@ export default {
           this.schedules.forEach((s) => {
             if (selected == s.id) {
               if (!s.classes.includes(c)) {
+                s.total += Number(c.hours);
                 s.classes.push(c);
               }
               return;
@@ -181,6 +190,7 @@ export default {
           this.schedules.forEach((s) => {
             if (selected == s.id) {
               if (!s.classes.includes(c)) {
+                s.total += Number(c.hours);
                 s.classes.push(c);
               }
               return;
@@ -192,6 +202,7 @@ export default {
     remove(id, schedule) {
       schedule.classes.forEach((c) => {
         if (c.id == id) {
+          schedule.total -= Number(c.hours);
           schedule.classes.pop(c);
         }
       });

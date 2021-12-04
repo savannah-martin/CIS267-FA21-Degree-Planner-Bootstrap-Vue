@@ -24,7 +24,12 @@
               <td></td>
               <th>Credits</th>
             </thead>
-            <tr v-for="c in schedule.classes" :key="c.id" @click="remove(c.id, schedule)">
+            <tr
+              class="makehover"
+              v-for="c in schedule.classes"
+              :key="c.id"
+              @click="remove(c.id, schedule)"
+            >
               <td>{{ c.id }}</td>
               <td>
                 <span class="fw-bold">{{ c.name }} </span>
@@ -40,7 +45,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td class="fw-bold">14</td>
+              <td class="fw-bold">{{ schedule.total }}</td>
             </tr>
           </table>
         </div>
@@ -69,5 +74,9 @@ export default {
 }
 .carat {
   font-size: 22px;
+}
+.makehover:hover {
+  background-color: rgb(184, 205, 226);
+  cursor: pointer;
 }
 </style>
