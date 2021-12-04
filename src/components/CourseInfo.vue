@@ -14,7 +14,7 @@
             <p class="card-subtitle">{{ course.id }}</p>
           </div>
           <div class="col-4 text-right">
-            <span class="text-muted">{{ course.hours }}</span>
+            <span class="text-muted">{{ course.semesteroffered }}</span>
           </div>
         </div>
         <div class="row">
@@ -47,6 +47,8 @@
           <p class="text-muted card-text">
             {{ course.description }}
           </p>
+          <p v-if="(course.prerequisite == '')">Prerequisite: none</p>
+          <p v-else>Prerequisite: {{ course.prerequisite }}</p>
         </b-collapse>
       </div>
     </div>
@@ -81,5 +83,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
