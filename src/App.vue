@@ -21,6 +21,7 @@
                     v-for="course in lacCourses"
                     :key="course.id"
                     @add-course="add"
+                    @remove-course="remove"
                   />
                 </div>
               </b-tab>
@@ -48,6 +49,7 @@
               class="accordion my-4"
               id="schedule.id"
               :schedule="schedule"
+              @remove-course="remove"
             />
           </div>
 
@@ -162,26 +164,37 @@ export default {
     add(id, selected) {
       //find schedule with matching value
       //push course onto classes array
-      if (this.schedules.length < 21) {
-        this.lacCourses.forEach((c) => {
-          if (c.id == id) {
-            this.schedules.forEach((s) => {
-              if (selected == s.id) {
+      this.lacCourses.forEach((c) => {
+        if (c.id == id) {
+          this.schedules.forEach((s) => {
+            if (selected == s.id) {
+              if (!s.classes.includes(c)) {
                 s.classes.push(c);
               }
-            });
-          }
-        });
-        this.cisCourses.forEach((c) => {
-          if (c.id == id) {
-            this.schedules.forEach((s) => {
-              if (selected == s.id) {
+              return;
+            }
+          });
+        }
+      });
+      this.cisCourses.forEach((c) => {
+        if (c.id == id) {
+          this.schedules.forEach((s) => {
+            if (selected == s.id) {
+              if (!s.classes.includes(c)) {
                 s.classes.push(c);
               }
-            });
-          }
-        });
-      }
+              return;
+            }
+          });
+        }
+      });
+    },
+    remove(id, schedule) {
+      schedule.classes.forEach((c) => {
+        if (c.id == id) {
+          schedule.classes.pop(c);
+        }
+      });
     },
   },
 };

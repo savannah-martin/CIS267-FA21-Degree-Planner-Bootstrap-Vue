@@ -24,7 +24,7 @@
               <td></td>
               <th>Credits</th>
             </thead>
-            <tr v-for="c in schedule.classes" :key="c.id">
+            <tr v-for="c in schedule.classes" :key="c.id" @click="remove(c.id, schedule)">
               <td>{{ c.id }}</td>
               <td>
                 <span class="fw-bold">{{ c.name }} </span>
@@ -54,8 +54,8 @@ export default {
   name: "SemesterSchedule",
   props: { schedule: Object },
   methods: {
-    remove(id) {
-      this.$emit("remove-course", id);
+    remove(id, schedule) {
+      this.$emit("remove-course", id, schedule);
     },
   },
 };
