@@ -1,13 +1,18 @@
 <template>
-  <div>
+  <div class="box">
     <div class="accordion-item">
       <h2
         class="accordion-header"
         id="fall2019heading"
         v-b-toggle:[schedule.collapseId]
       >
-        <div class="">
-          <h4 class="my-0">{{ schedule.name }}</h4>
+        <div class="d-flex flex-row justify-content-between px-2">
+          <div>
+            <h4 class="my-0">{{ schedule.name }}</h4>
+          </div>
+          <div>
+            <p class="carat text-right px-4 text-primary">▼</p>
+          </div>
         </div>
       </h2>
       <b-collapse :id="schedule.collapseId">
@@ -47,7 +52,7 @@
 <script>
 export default {
   name: "SemesterSchedule",
-  props: { schedule: Object},
+  props: { schedule: Object },
   methods: {
     remove(id) {
       this.$emit("remove-course", id);
@@ -56,4 +61,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.box {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding-top: 14px;
+}
+.carat {
+  font-size: 22px;
+}
+</style>
