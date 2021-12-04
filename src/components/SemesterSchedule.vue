@@ -3,7 +3,7 @@
     <div class="accordion-item">
       <h2
         class="accordion-header"
-        id="fall2019heading"
+        id=""
         v-b-toggle:[schedule.collapseId]
       >
         <div class="d-flex flex-row justify-content-between px-2">
