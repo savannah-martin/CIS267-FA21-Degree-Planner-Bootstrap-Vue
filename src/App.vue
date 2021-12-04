@@ -3,8 +3,8 @@
     <!-- Main Content -->
     <main class="flex-fill">
       <div class="container-fluid">
-        <div class="row mb-5">
-          <h1>Degree Planner</h1>
+        <div class="row mb-5 bg-primary text-light">
+          <h1 class="p-3">Degree Planner</h1>
         </div>
         <div class="row main-content">
           <!-- Classes -->
